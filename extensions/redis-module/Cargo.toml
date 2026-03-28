@@ -1,0 +1,21 @@
+[package]
+name = "redis_2fapi"
+version = "0.1.0"
+edition = "2021"
+description = "Redis module for Zero-Knowledge Proof authentication via Pedersen commitments"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]  # cdylib for Redis module, rlib for unit tests
+
+[features]
+default = []
+redis-module = ["dep:redis-module"]  # Only for building as Redis module
+
+[dependencies]
+redis-module = { version = "2", optional = true }
+twofapi-crypto-core = { path = "../../crypto-core" }
+rand = "0.8"
+hex = "0.4"
+subtle = "2"

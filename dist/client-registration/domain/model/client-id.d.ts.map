@@ -1,0 +1,1 @@
+{"version":3,"file":"client-id.d.ts","sourceRoot":"","sources":["../../../../src/client-registration/domain/model/client-id.ts"],"names":[],"mappings":"AAEA,qBAAa,QAAQ;IACnB,OAAO,CAAC,QAAQ,CAAC,KAAK,CAAa;IAEnC,OAAO;IAIP,MAAM,CAAC,SAAS,CAAC,KAAK,EAAE,UAAU,GAAG,QAAQ;IAS7C,OAAO,IAAI,UAAU;IAIrB,MAAM,CAAC,KAAK,EAAE,QAAQ,GAAG,OAAO;IAQhC,QAAQ,IAAI,MAAM;CAKnB"}

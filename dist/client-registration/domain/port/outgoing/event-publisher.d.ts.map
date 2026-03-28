@@ -1,0 +1,1 @@
+{"version":3,"file":"event-publisher.d.ts","sourceRoot":"","sources":["../../../../../src/client-registration/domain/port/outgoing/event-publisher.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,WAAW;IAC1B,QAAQ,CAAC,SAAS,EAAE,MAAM,CAAC;IAC3B,QAAQ,CAAC,UAAU,EAAE,IAAI,CAAC;CAC3B;AAED,MAAM,WAAW,cAAc;IAC7B,OAAO,CAAC,KAAK,EAAE,WAAW,GAAG,OAAO,CAAC,IAAI,CAAC,CAAC;CAC5C"}

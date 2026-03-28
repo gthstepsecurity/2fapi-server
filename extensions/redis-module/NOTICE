@@ -1,0 +1,7 @@
+redis-2fapi — Zero-Knowledge Proof Authentication for Redis
+Copyright 2024-2026 Continuum Identity SAS
+
+Redis module providing native ZKP authentication via Pedersen
+commitments over Ristretto255.
+
+Licensed under Apache License, Version 2.0.

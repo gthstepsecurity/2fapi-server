@@ -1,0 +1,12 @@
+# Pinned Rust toolchain for reproducible builds.
+#
+# All builds of the crypto-core crate MUST use this exact toolchain version.
+# Different compiler versions may produce different binary output even from
+# identical source, breaking reproducibility verification.
+#
+# Update this file only during planned toolchain upgrades with full regression testing.
+
+[toolchain]
+channel = "1.93.0"
+components = ["rustfmt", "clippy"]
+targets = ["x86_64-unknown-linux-gnu", "wasm32-unknown-unknown"]

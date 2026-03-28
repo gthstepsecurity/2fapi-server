@@ -1,0 +1,11 @@
+@2fapi/server — 2FApi Verification Server
+Copyright 2024-2026 Continuum Identity SAS
+
+Server-side ZKP verification engine for the 2FApi protocol.
+
+Licensed under Business Source License 1.1 (BSL 1.1).
+Converts to Apache License 2.0 four years after each release.
+See LICENSE file for details.
+
+Commercial licensing available from Continuum Identity SAS.
+Contact: licensing@continuum-identity.com

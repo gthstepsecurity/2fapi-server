@@ -1,0 +1,45 @@
+Business Source License 1.1
+
+Parameters
+
+Licensor:             Continuum Identity SAS
+Licensed Work:        2FApi Server 0.1.0
+                      The Licensed Work is (c) 2024-2026 Continuum Identity SAS.
+Additional Use Grant: You may make production use of the Licensed Work, provided
+                      that such use does not include offering the Licensed Work
+                      to third parties as a managed service, hosted service, or
+                      authentication-as-a-service that competes with Continuum
+                      Identity's commercial offerings.
+Change Date:          Four years from the date of each release of the Licensed
+                      Work (e.g., a release on 2026-03-23 converts on 2030-03-23).
+Change License:       Apache License, Version 2.0
+
+For the full text of the Business Source License 1.1, see:
+https://mariadb.com/bsl11/
+
+Notice
+
+The Licensed Work is provided under the terms of the Business Source License
+1.1 as published at https://mariadb.com/bsl11/. See the above Parameters for
+the specific terms applicable to this Licensed Work.
+
+The Licensor hereby grants you the right to copy, modify, create derivative
+works, redistribute, and make non-production use of the Licensed Work.
+
+The Licensor grants you an Additional Use Grant as stated above, permitting
+limited production use.
+
+On the Change Date, or the fourth anniversary of the first publicly available
+distribution of a specific version of the Licensed Work under this License,
+whichever comes first, the Licensor hereby grants you rights under the terms
+of the Change License, and the rights granted under the Business Source
+License 1.1 with respect to that version terminate.
+
+If your use of the Licensed Work does not comply with the requirements
+currently in effect as described in this License, you must purchase a
+commercial license from the Licensor, its affiliated entities, or authorized
+resellers, or you must refrain from using the Licensed Work.
+
+All copies of the original and modified Licensed Work, and derivative works
+of the Licensed Work, are subject to this License. This License applies
+separately for each version of the Licensed Work.

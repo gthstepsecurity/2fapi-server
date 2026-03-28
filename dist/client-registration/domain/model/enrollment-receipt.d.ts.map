@@ -1,0 +1,1 @@
+{"version":3,"file":"enrollment-receipt.d.ts","sourceRoot":"","sources":["../../../../src/client-registration/domain/model/enrollment-receipt.ts"],"names":[],"mappings":"AAAA,qBAAa,iBAAiB;IAE1B,QAAQ,CAAC,WAAW,EAAE,MAAM;IAC5B,QAAQ,CAAC,gBAAgB,EAAE,MAAM;gBADxB,WAAW,EAAE,MAAM,EACnB,gBAAgB,EAAE,MAAM;IAGnC,MAAM,CAAC,KAAK,EAAE,iBAAiB,GAAG,OAAO;CAM1C"}

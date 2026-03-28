@@ -1,0 +1,69 @@
+# pg_2fapi — PostgreSQL 16 with Zero-Knowledge Proof authentication
+#
+# Build: docker build -f Dockerfile.pg16 -t pg-2fapi:16 ../..
+# Run:   docker run -d -p 5440:5432 -e POSTGRES_PASSWORD=dev pg-2fapi:16
+# Test:  psql -h localhost -p 5440 -U twofapi -d twofapi -c "SELECT twofapi.version();"
+
+# ============================================
+# Stage 1: Build the extension in Rust
+# ============================================
+FROM rust:1.93-bookworm AS builder
+
+# Add PostgreSQL APT repository
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl ca-certificates gnupg lsb-release \
+    && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /usr/share/keyrings/pgdg.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/pgdg.gpg] http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+    postgresql-server-dev-16 \
+    postgresql-16 \
+    pkg-config \
+    libssl-dev \
+    libclang-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install cargo-pgrx matching our version
+RUN cargo install cargo-pgrx --version 0.12.9 --locked
+
+# Initialize pgrx for PG 16
+RUN cargo pgrx init --pg16 /usr/lib/postgresql/16/bin/pg_config
+
+# Copy the crypto-core crate first (for caching)
+WORKDIR /build
+COPY crypto-core/ crypto-core/
+
+# Copy the extension
+COPY extensions/pg-extension/ extensions/pg-extension/
+
+# Build the extension (.so + .control)
+WORKDIR /build/extensions/pg-extension
+RUN cargo pgrx package --features pg16
+
+# Copy our SQL file with CREATE FUNCTION declarations
+# (pgrx package does not auto-generate SQL in this configuration)
+RUN cp sql/pg_2fapi--1.0.sql \
+    target/release/pg_2fapi-pg16/usr/share/postgresql/16/extension/pg_2fapi--1.0.sql
+
+# ============================================
+# Stage 2: Runtime image with extension
+# ============================================
+FROM postgres:16-bookworm
+
+# Copy extension artifacts (.so + .control + SQL)
+COPY --from=builder /build/extensions/pg-extension/target/release/pg_2fapi-pg16/usr/share/postgresql/16/extension/ \
+     /usr/share/postgresql/16/extension/
+COPY --from=builder /build/extensions/pg-extension/target/release/pg_2fapi-pg16/usr/lib/postgresql/16/lib/ \
+     /usr/lib/postgresql/16/lib/
+
+# Auto-create extension on database init
+RUN echo "CREATE EXTENSION IF NOT EXISTS pg_2fapi;" > /docker-entrypoint-initdb.d/01-create-extension.sql
+
+# Default environment
+ENV POSTGRES_DB=twofapi
+ENV POSTGRES_USER=twofapi
+
+EXPOSE 5432
+
+HEALTHCHECK --interval=10s --timeout=5s --retries=5 \
+  CMD pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}

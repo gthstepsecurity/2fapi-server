@@ -1,0 +1,1 @@
+{"version":3,"file":"noop-event-publisher.d.ts","sourceRoot":"","sources":["../../../../../src/client-registration/infrastructure/adapter/outgoing/noop-event-publisher.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,cAAc,EAAE,WAAW,EAAE,MAAM,kDAAkD,CAAC;AAEpG,qBAAa,kBAAmB,YAAW,cAAc;IACjD,OAAO,CAAC,MAAM,EAAE,WAAW,GAAG,OAAO,CAAC,IAAI,CAAC;CAGlD"}

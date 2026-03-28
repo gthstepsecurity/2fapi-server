@@ -1,0 +1,7 @@
+@2fapi/protocol-spec — 2FApi Protocol Specification
+Copyright 2024-2026 Continuum Identity SAS
+
+Formal specification of the 2FApi Zero-Knowledge Proof authentication
+protocol: Pedersen commitments, Sigma proofs, Fiat-Shamir transform.
+
+Licensed under Apache License, Version 2.0.

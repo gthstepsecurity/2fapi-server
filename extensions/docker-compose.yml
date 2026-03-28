@@ -1,0 +1,63 @@
+# =============================================================================
+# 2FApi Extensions — Docker Compose
+# =============================================================================
+# Runs both PostgreSQL (with pg_2fapi) and Redis (with redis-2fapi) in a
+# single stack, pre-configured for local development and integration testing.
+#
+# Usage:
+#   docker compose up -d
+#   docker compose logs -f
+#
+# Test PostgreSQL:
+#   psql -h localhost -U postgres -p 5432 -c "SELECT twofapi.pg_2fapi_version();"
+#
+# Test Redis:
+#   redis-cli -p 6379 2FAPI.ENROLL test-client <commitment_hex>
+#
+# Tear down:
+#   docker compose down -v
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # PostgreSQL 17 with pg_2fapi extension
+  # ---------------------------------------------------------------------------
+  postgres-2fapi:
+    build:
+      context: ../
+      dockerfile: extensions/pg-extension/Dockerfile
+    container_name: pg-2fapi
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: twofapi_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  # ---------------------------------------------------------------------------
+  # Redis 7.4 with redis-2fapi module
+  # ---------------------------------------------------------------------------
+  redis-2fapi:
+    build:
+      context: ../
+      dockerfile: extensions/redis-module/Dockerfile
+    container_name: redis-2fapi
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  pg_data:
+  redis_data:

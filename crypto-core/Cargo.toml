@@ -1,0 +1,33 @@
+[package]
+name = "twofapi-crypto-core"
+version = "0.1.0"
+edition = "2021"
+description = "Cryptographic core for 2FApi — Pedersen commitments and Sigma proofs over Ristretto255"
+license = "Apache-2.0"
+publish = false
+
+[dependencies]
+curve25519-dalek = "4"
+sha2 = "0.10"
+rand = "0.8"
+zeroize = { version = "1", features = ["derive"] }
+subtle = "2"
+thiserror = "1"
+argon2 = "0.5"
+hkdf = "0.12"
+hmac = "0.12"
+
+[dev-dependencies]
+rand = "0.8"
+dudect-bencher = "0.4"
+clap = "2"
+getrandom = "0.2"
+
+[lib]
+crate-type = ["lib"]
+
+# --- dudect constant-time verification harnesses ---
+
+[[bench]]
+name = "dudect_constant_time"
+harness = false

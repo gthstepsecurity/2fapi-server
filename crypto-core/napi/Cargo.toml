@@ -1,0 +1,25 @@
+[package]
+name = "twofapi-crypto-napi"
+version = "0.1.0"
+edition = "2021"
+description = "napi-rs bindings for 2FApi crypto core — Node.js FFI layer"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+twofapi-crypto-core = { path = ".." }
+napi = { version = "2", features = ["napi4"] }
+napi-derive = "2"
+curve25519-dalek = { version = "4", features = ["serde"] }
+rand = "0.8"
+zeroize = { version = "1", features = ["derive"] }
+subtle = "2"
+
+[build-dependencies]
+napi-build = "2"
+
+[profile.release]
+lto = true

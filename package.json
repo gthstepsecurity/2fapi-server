@@ -1,0 +1,44 @@
+{
+  "name": "@2fapi/core",
+  "version": "0.1.0",
+  "description": "Zero-Knowledge Proof API Authentication Protocol — Core Library",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "zkproof",
+    "authentication",
+    "pedersen",
+    "2fa",
+    "api-security"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@stryker-mutator/core": "^9.6.0",
+    "@stryker-mutator/typescript-checker": "^9.6.0",
+    "@stryker-mutator/vitest-runner": "^9.6.0",
+    "@types/node": "^25.5.0",
+    "fast-check": "^4.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "@noble/ed25519": "^3.0.1",
+    "argon2": "^0.44.0",
+    "fastify": "^5.8.2",
+    "ioredis": "^5.10.1",
+    "pg": "^8.20.0"
+  }
+}

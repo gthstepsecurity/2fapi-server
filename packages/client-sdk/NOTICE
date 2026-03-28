@@ -1,0 +1,7 @@
+@2fapi/client-sdk — 2FApi Client SDK
+Copyright 2024-2026 Continuum Identity SAS
+
+TypeScript/JavaScript SDK for 2FApi ZKP authentication.
+Supports Node.js, Deno, and browser environments.
+
+Licensed under Apache License, Version 2.0.

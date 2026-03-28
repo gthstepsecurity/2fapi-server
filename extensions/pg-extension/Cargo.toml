@@ -1,0 +1,34 @@
+[package]
+name = "pg_2fapi"
+version = "0.1.0"
+edition = "2021"
+description = "PostgreSQL extension for Zero-Knowledge Proof authentication via Pedersen commitments"
+license = "Apache-2.0"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]  # cdylib for PG extension, rlib for unit tests
+
+[features]
+default = []
+pg14 = ["dep:pgrx", "pgrx/pg14"]
+pg15 = ["dep:pgrx", "pgrx/pg15"]
+pg16 = ["dep:pgrx", "pgrx/pg16"]
+pg17 = ["dep:pgrx", "pgrx/pg17"]
+
+[dependencies]
+pgrx = { version = "0.12", optional = true }
+twofapi-crypto-core = { path = "../../crypto-core" }
+rand = "0.8"
+hex = "0.4"
+subtle = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[[bin]]
+name = "pgrx_embed_pg_2fapi"
+path = "src/bin/pgrx_embed.rs"
+
+[dev-dependencies]
+# pgrx-tests = "0.12"  # Uncomment when pgrx is installed: cargo install cargo-pgrx
+curve25519-dalek = "4"

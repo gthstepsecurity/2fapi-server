@@ -1,0 +1,6 @@
+comment = '2FApi: Zero-Knowledge Proof authentication for PostgreSQL'
+default_version = '1.0'
+module_pathname = '$libdir/pg_2fapi'
+relocatable = false
+schema = twofapi
+superuser = true

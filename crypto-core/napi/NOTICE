@@ -1,0 +1,6 @@
+twofapi-crypto-napi — Node.js Native Bindings for 2FApi Crypto Core
+Copyright 2024-2026 Continuum Identity SAS
+
+napi-rs FFI layer exposing Ristretto255 cryptographic operations to Node.js.
+
+Licensed under Apache License, Version 2.0.

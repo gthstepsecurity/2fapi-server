@@ -1,0 +1,1 @@
+{"version":3,"file":"console-audit-logger.d.ts","sourceRoot":"","sources":["../../../../../src/client-registration/infrastructure/adapter/outgoing/console-audit-logger.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,UAAU,EAAE,MAAM,+CAA+C,CAAC;AAmB7F,qBAAa,kBAAmB,YAAW,WAAW;IAC9C,GAAG,CAAC,KAAK,EAAE,UAAU,GAAG,OAAO,CAAC,IAAI,CAAC;CAO5C"}
